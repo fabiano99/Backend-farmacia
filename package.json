@@ -1,20 +1,23 @@
 {
-  "name": "farmacia-backend",
+  "name": "servidor",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fabiano99/Backend-farmacia.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/fabiano99/Backend-farmacia/issues"
-  },
-  "homepage": "https://github.com/fabiano99/Backend-farmacia#readme"
+  "dependencies": {
+    "@types/mongoose": "^5.3.24",
+    "@types/restify": "^7.2.9",
+    "@types/restify-cors-middleware": "^1.0.1",
+    "cors": "^2.8.5",
+    "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10",
+    "restify": "^8.2.0",
+    "restify-cors-middleware": "^1.1.1",
+    "typescript": "^3.4.1"
+  }
 }
