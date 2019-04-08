@@ -13,7 +13,7 @@ export const estoqueSchema = new mongoose.Schema({
         required: true
     },
     qtd: {
-        typer: Number,
+        type: Number,
         required: true
     },
     qtdTotal: {

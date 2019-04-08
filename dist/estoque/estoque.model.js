@@ -14,7 +14,7 @@ exports.estoqueSchema = new mongoose_1.default.Schema({
         required: true
     },
     qtd: {
-        typer: Number,
+        type: Number,
         required: true
     },
     qtdTotal: {

@@ -24,7 +24,7 @@ var Server = /** @class */ (function () {
     }
     Server.prototype.initializeDb = function () {
         mongoose_1.default.Promise = global.Promise; //campo obrigatorio
-        return mongoose_1.default.connect('mongodb://localhost/mydb');
+        return mongoose_1.default.connect('mongodb://localhost/farmaciadb');
     };
     Server.prototype.inicializarRotas = function (routers) {
         var _this = this;
