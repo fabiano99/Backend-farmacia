@@ -8,25 +8,35 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = __importStar(require("mongoose"));
-var clienteSchema = new mongoose_1.default.Schema({
-    nome: {
-        type: String,
+exports.vendaSchema = new mongoose_1.default.Schema({
+    cliente: {
+        type: mongoose_1.Schema.Types.ObjectId,
         required: true
     },
-    cpf: {
-        type: String,
-        required: true,
-        unique: true
+    funcionario: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        required: true
     },
-    telefone: {
-        type: String,
-        required: true,
-        unique: true
+    produto: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        required: true
     },
-    sexo: {
-        type: Boolean,
+    qtd: {
+        type: Number,
+        required: true
     },
-    dataNascimento: {
+    total: {
+        type: Number,
+        required: true
+    },
+    valor: {
+        type: Number,
+        required: true
+    },
+    desconto: {
+        type: Number
+    },
+    date: {
         type: Date,
         required: true
     },
@@ -34,9 +44,8 @@ var clienteSchema = new mongoose_1.default.Schema({
         type: Boolean,
         required: true
     },
-    end: {
+    troca: {
         type: mongoose_1.Schema.Types.ObjectId,
-        required: true
     }
 });
-exports.Cliente = mongoose_1.default.model('Cliente', clienteSchema);
+exports.Venda = mongoose_1.default.model('Venda', exports.vendaSchema);

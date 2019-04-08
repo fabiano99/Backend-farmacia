@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var restify = __importStar(require("restify"));
 var restify_cors_middleware_1 = __importDefault(require("restify-cors-middleware"));
 var error_1 = require("./error");
+var enviroment_1 = require("../routes/enviroment");
 var mongoose_1 = __importDefault(require("mongoose"));
 var Server = /** @class */ (function () {
     function Server() {
@@ -44,7 +45,7 @@ var Server = /** @class */ (function () {
                     var router = routers_1[_i];
                     router.applyRouter(_this.application);
                 }
-                _this.application.listen(3000, function () {
+                _this.application.listen(enviroment_1.Enviroment.port, function () {
                     resolve(_this.application);
                 });
                 _this.application.on('restifyError', error_1.handleError);
