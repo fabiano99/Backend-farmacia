@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 export interface Endereco extends mongoose.Document {
+    _id: Object;
     rua: String;
     cep: String;
     cidade: String;

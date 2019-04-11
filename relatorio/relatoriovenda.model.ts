@@ -10,15 +10,18 @@ export interface RelatorioVenda extends mongoose.Document {
 
 export const relatoriovendaSchema = new mongoose.Schema({
     produto: {
-        type: Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
+        default: undefined,
         required: true
     },
     qtd: {
-        type: Number,
+        type: [Number],
+        default: undefined,
         required: true
     },
     valor: {
-        type: Number,
+        type: [Number],
+        default: undefined,
         required: true
     },
     qtdTotal: {

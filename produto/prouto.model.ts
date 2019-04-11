@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 export interface Produto extends mongoose.Document {
+    _id: Object;
     codProduto: Number;
     nomeProduto: String;
     descricao: String;
@@ -49,7 +50,7 @@ export const produtoSchema = new mongoose.Schema({
     },
     lab: {
         type: Schema.Types.ObjectId,
-        required: true
+        required: false
     },
     principioAtivo: {
         type: String,

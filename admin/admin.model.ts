@@ -1,6 +1,7 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 export interface Admin extends mongoose.Document {
+    _id: Object;
     nome: String;
     password: String;
     email: String;

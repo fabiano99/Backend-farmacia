@@ -10,15 +10,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = __importStar(require("mongoose"));
 exports.relatoriovendaSchema = new mongoose_1.default.Schema({
     produto: {
-        type: mongoose_1.Schema.Types.ObjectId,
+        type: [mongoose_1.Schema.Types.ObjectId],
+        default: undefined,
         required: true
     },
     qtd: {
-        type: Number,
+        type: [Number],
+        default: undefined,
         required: true
     },
     valor: {
-        type: Number,
+        type: [Number],
+        default: undefined,
         required: true
     },
     qtdTotal: {

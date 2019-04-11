@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 export interface Estoque extends mongoose.Document {
+    _id: Object;
     produto: Schema.Types.ObjectId[];
     qtd: Number[];
     qtdTotal: Number;
@@ -9,8 +10,10 @@ export interface Estoque extends mongoose.Document {
 
 export const estoqueSchema = new mongoose.Schema({
     produto: {
-        type:Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
+        default: undefined,
         required: true
+
     },
     qtd: {
         type: Number,

@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 export interface Cliente extends mongoose.Document {
+    _id: Object;
     nome: String;
     cpf: String;
     telefone: String;

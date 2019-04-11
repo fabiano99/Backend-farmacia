@@ -40,7 +40,7 @@ exports.produtoSchema = new mongoose_1.default.Schema({
     },
     lab: {
         type: mongoose_1.Schema.Types.ObjectId,
-        required: true
+        required: false
     },
     principioAtivo: {
         type: String,
