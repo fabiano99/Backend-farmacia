@@ -23,6 +23,10 @@ class adminRotas extends Routes {
             return next();
         })
 
+        application.post('/login', (req, resp, next) => {
+            
+        })
+
         application.del('/admin/:id', (req, resp, next) => {
             Admin.remove({ _id: req.params.id }).exec().then((result: any) => {
                 if (result.n) {

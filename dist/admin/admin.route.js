@@ -36,6 +36,8 @@ var adminRotas = /** @class */ (function (_super) {
             });
             return next();
         });
+        application.post('/login', function (req, resp, next) {
+        });
         application.del('/admin/:id', function (req, resp, next) {
             admin_model_1.Admin.remove({ _id: req.params.id }).exec().then(function (result) {
                 if (result.n) {
