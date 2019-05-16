@@ -16,11 +16,13 @@ var adminSchema = new mongoose_1.default.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     telefone: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 });
 exports.Admin = mongoose_1.default.model('Admin', adminSchema);

@@ -1,8 +1,8 @@
 import * as restify from 'restify';
+import { Md5 } from 'ts-md5/dist/md5'
+
 import { Admin } from './admin.model'
 import { Routes } from '../routes/routes'
-
-
 class adminRotas extends Routes {
     applyRouter(application: restify.Server) {
         application.get('/admin', (req, resp, next) => {
@@ -15,6 +15,9 @@ class adminRotas extends Routes {
         application.post('/admin', (req, resp, next) => {
             let admin = new Admin(req.body);
 
+            let myHash = <string>Md5.hashStr(<string>admin.password);
+            admin.password = myHash;
+
             admin.save().then(admin => {
                 resp.json(admin);
             }, error => {
@@ -24,7 +27,21 @@ class adminRotas extends Routes {
         })
 
         application.post('/login', (req, resp, next) => {
-            
+            let admin = new Admin(req.body);
+            let myHash = <String>Md5.hashStr(<string>admin.password);
+            admin.password = myHash;
+            console.log(admin.password);
+
+            Admin.findOne({ $and: [{ "email": admin.email }, { "password": admin.password }] })
+                .then(u => {
+                    console.log(u);
+                    if (u != null )
+                    {
+                        resp.json(u);
+                        console.log(u);
+                        return next();
+                    }
+                }).catch(next);
         })
 
         application.del('/admin/:id', (req, resp, next) => {
