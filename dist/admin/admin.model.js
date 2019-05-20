@@ -23,6 +23,10 @@ var adminSchema = new mongoose_1.default.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    status: {
+        type: String,
+        required: true
     }
 });
 exports.Admin = mongoose_1.default.model('Admin', adminSchema);

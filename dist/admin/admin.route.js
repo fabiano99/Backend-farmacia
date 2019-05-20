@@ -39,21 +39,6 @@ var adminRotas = /** @class */ (function (_super) {
             });
             return next();
         });
-        application.post('/login', function (req, resp, next) {
-            var admin = new admin_model_1.Admin(req.body);
-            var myHash = md5_1.Md5.hashStr(admin.password);
-            admin.password = myHash;
-            console.log(admin.password);
-            admin_model_1.Admin.findOne({ $and: [{ "email": admin.email }, { "password": admin.password }] })
-                .then(function (u) {
-                console.log(u);
-                if (u != null) {
-                    resp.json(u);
-                    console.log(u);
-                    return next();
-                }
-            }).catch(next);
-        });
         application.del('/admin/:id', function (req, resp, next) {
             admin_model_1.Admin.remove({ _id: req.params.id }).exec().then(function (result) {
                 if (result.n) {
