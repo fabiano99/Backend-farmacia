@@ -26,23 +26,6 @@ class adminRotas extends Routes {
             return next();
         })
 
-        application.post('/login', (req, resp, next) => {
-            let admin = new Admin(req.body);
-            let myHash = <String>Md5.hashStr(<string>admin.password);
-            admin.password = myHash;
-            console.log(admin.password);
-
-            Admin.findOne({ $and: [{ "email": admin.email }, { "password": admin.password }] })
-                .then(u => {
-                    console.log(u);
-                    if (u != null )
-                    {
-                        resp.json(u);
-                        console.log(u);
-                        return next();
-                    }
-                }).catch(next);
-        })
 
         application.del('/admin/:id', (req, resp, next) => {
             Admin.remove({ _id: req.params.id }).exec().then((result: any) => {

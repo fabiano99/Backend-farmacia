@@ -5,7 +5,8 @@ export interface Admin extends mongoose.Document {
     nome: String;
     password: String;
     email: String;
-    telefone: String; 
+    telefone: String;
+    status: String;
 
 }
 
@@ -28,6 +29,10 @@ const adminSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    status: {
+        type: String,
+        required: true
     }
 
 }) 

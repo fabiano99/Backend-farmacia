@@ -7,25 +7,26 @@ export interface Cliente extends mongoose.Document {
     telefone: String;
     sexo: Boolean;
     dataNascimento: Date;
-    status: Boolean;
+    status: String;
     end: Schema.Types.ObjectId;
+    password: String;
+    email: String;
 }
 
 const clienteSchema = new mongoose.Schema({
     nome: {
         type: String,
         required: true
-
     },
     cpf: {
         type: String,
-        required: true,
+        required: false,
         unique: true
 
     },
     telefone: {
         type: String,
-        required: true,
+        required: false,
         unique: true
     },
     sexo: {
@@ -33,18 +34,27 @@ const clienteSchema = new mongoose.Schema({
     },
     dataNascimento: {
         type: Date,
-        required: true
+        required: false
     },
     status: {
-        type: Boolean,
+        type: String,
         required: true
     },
     end: {
         type: Schema.Types.ObjectId,
-        required: true
+        required: false
+    },
+    password: {
+        type: String,
+        required: true,
+        select: false
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
     }
 
-
-})  
+})
 
 export const Cliente = mongoose.model<Cliente>('Cliente', clienteSchema);
