@@ -3,7 +3,16 @@ import mongoose, { Schema } from 'mongoose';
 export interface Laboratorio extends mongoose.Document {
     nome: String;
     razaoSocial: String;
-    endereco: Schema.Types.ObjectId;
+    //endereco: Schema.Types.ObjectId;
+    endereco: {
+        rua: String, 
+        cep:String,  
+        numero: Number, 
+        cidade: String, 
+        uf: String, 
+        complemento: String, 
+        bairro: String
+    };
     telefone: String;
     email: String;
     status: Boolean;
@@ -21,7 +30,7 @@ export const laboratorioSchema = new mongoose.Schema({
         unique: true
     },
     endereco: {
-        type: Schema.Types.ObjectId,
+        type: Object,
         required: true
     },
     telefone: {
@@ -36,7 +45,7 @@ export const laboratorioSchema = new mongoose.Schema({
     },
     status: {
         type: Boolean,
-        required: true
+        required: false
     },
     cnpj: {
         type: String,

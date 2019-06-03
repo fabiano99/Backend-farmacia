@@ -12,6 +12,13 @@ class laboratorioRotas extends Routes {
             })
         })
 
+        application.get('/laboratorio/:id', (req, resp, next) => {
+            Laboratorio.findById(req.params.id).then(laboratorio => {
+                resp.json(laboratorio)
+                return next();
+            })
+        })
+
         application.post('/laboratorio', (req, resp, next) => {
             let laboratorio = new Laboratorio(req.body);
 
