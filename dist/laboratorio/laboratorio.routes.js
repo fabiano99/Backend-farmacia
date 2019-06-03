@@ -27,6 +27,12 @@ var laboratorioRotas = /** @class */ (function (_super) {
                 return next();
             });
         });
+        application.get('/laboratorio/:id', function (req, resp, next) {
+            laboratorio_model_1.Laboratorio.findById(req.params.id).then(function (laboratorio) {
+                resp.json(laboratorio);
+                return next();
+            });
+        });
         application.post('/laboratorio', function (req, resp, next) {
             var laboratorio = new laboratorio_model_1.Laboratorio(req.body);
             laboratorio.save().then(function (laboratorio) {

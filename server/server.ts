@@ -13,7 +13,7 @@ export class Server {
 
     initializeDb():any{
         (<any> mongoose).Promise = global.Promise; //campo obrigatorio
-        return mongoose.connect('mongodb://localhost/farmaciadb')
+        return mongoose.connect(Enviroment.remoteHost)
     }
 
     inicializarRotas(routers:Routes[]):Promise<any>{
