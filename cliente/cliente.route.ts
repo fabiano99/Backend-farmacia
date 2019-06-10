@@ -16,9 +16,6 @@ class clienteRotas extends Routes {
 
         application.post('/cliente', (req, resp, next) => {
             let user = new Cliente(req.body);
-
-            let myHash =<String>Md5.hashStr(<string>user.password)
-            user.password = myHash;
             user.save().then(user => {
                 resp.json(user);
             }, error => {

@@ -6,6 +6,7 @@ export interface Funcionario extends mongoose.Document {
     password: String;
     telefone: String;
     status: Boolean;
+    isAdmin: Boolean
 }
 
 const funcionarioSchema = new mongoose.Schema({
@@ -29,6 +30,10 @@ const funcionarioSchema = new mongoose.Schema({
     status: {
         type: Boolean,
         required: true,
+    },
+    isAdmin: {
+        type: Boolean,
+        required: true
     }
 })
 
