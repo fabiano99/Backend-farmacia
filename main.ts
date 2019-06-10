@@ -1,7 +1,5 @@
 import { Server } from './server/server';
-import { AdminRotas } from './admin/admin.route';
 import { ClienteRotas } from './cliente/cliente.route';
-import { EnderecoRotas } from './endereco/endereco.route';
 import { EstoqueRotas } from './estoque/estoque.route';
 import { FornecedorRotas } from './fornecedor/fornecedor.route';
 import { FuncionarioRotas } from './funcionario/funcionario.route'
@@ -13,7 +11,7 @@ import { LoginRoutes } from './login/login.route';
 
 const server: Server = new Server;
 
-server.bootstrap([AdminRotas, ClienteRotas, EnderecoRotas, EstoqueRotas, FornecedorRotas, FuncionarioRotas, LaboratorioRotas, ProdutoRotas, RelatorioVendaRotas, VendaRotas, LoginRoutes]).then(server => {
+server.bootstrap([ClienteRotas, EstoqueRotas, FornecedorRotas, FuncionarioRotas, LaboratorioRotas, ProdutoRotas, RelatorioVendaRotas, VendaRotas, LoginRoutes]).then(server => {
     console.log(`Servidor executando na porta: ${server.application.address().port}[]`)
 }).catch(error => {
     console.log("Servidor não inicializou!")
